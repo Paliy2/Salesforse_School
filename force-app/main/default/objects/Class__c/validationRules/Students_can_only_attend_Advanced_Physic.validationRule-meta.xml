@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Students_can_only_attend_Advanced_Physic</fullName>
+    <active>true</active>
+    <description>Students can only attend Advanced Physics starting from the 3rd year of study. Error Location: Field Class.</description>
+    <errorConditionFormula>AND ( 
+ISPICKVAL(Subject__c, &quot;Physics (Advanced)&quot;),
+OR 
+( 
+INCLUDES (Year_of_Study__c, &quot;1&quot;),
+INCLUDES (Year_of_Study__c, &quot;2&quot;)
+)
+)</errorConditionFormula>
+    <errorDisplayField>Subject__c</errorDisplayField>
+    <errorMessage>Students can only attend Advanced Physics starting from the 3rd year of study. Error Location: Field Class.</errorMessage>
+</ValidationRule>
