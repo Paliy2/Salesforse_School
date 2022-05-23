@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Students_cant_be_awarded</fullName>
+    <active>true</active>
+    <description>Students can&apos;t be awarded an Academic scholarship during 1st year of study. Error Location: Field Scholarship.</description>
+    <errorConditionFormula>AND (
+ISPICKVAL(Year_of_Study__c, &quot;1&quot;),
+OR (
+ISPICKVAL(Scholarship__c , &quot;Regular&quot;),
+ISPICKVAL(Scholarship__c , &quot;Increased&quot;),
+ISPICKVAL(Scholarship__c , &quot;Academic&quot;))
+)</errorConditionFormula>
+    <errorMessage>Error Location: Field Scholarship.</errorMessage>
+</ValidationRule>
